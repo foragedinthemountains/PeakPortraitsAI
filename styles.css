@@ -461,3 +461,31 @@ footer a {
         margin: 0 auto; /* Centers the image */
     }
 }
+/* Default styles (for desktop) */
+.contact-info img {
+    max-width: 100%; /* Ensures the image doesn't exceed its container */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+/* Hide mobile-only image on desktop */
+.mobile-only {
+    display: none;
+}
+
+/* Mobile styles (for screens less than 768px wide) */
+@media (max-width: 768px) {
+    /* Hide desktop-only image on mobile */
+    .desktop-only {
+        display: none;
+    }
+
+    /* Show mobile-only image */
+    .mobile-only {
+        display: block;
+        width: 100%; /* Ensures the image fills the container */
+        max-width: 100%; /* Prevents the image from exceeding its container */
+        height: auto; /* Maintains aspect ratio */
+        border-radius: 10px; /* Optional: Adds rounded corners */
+    }
+}
