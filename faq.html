@@ -51,25 +51,6 @@
     <div class="test-button">
         <a href="thank-you.html">Test Thank You Page</a>
     </div>
-
-    <!-- Footer Section -->
-    <footer>
-        <!-- Contact Information -->
-        <div class="contact-info">
-            <img src="contact-info.png" alt="Contact Information: Name - John Doe, Email - john@example.com, Phone - +1 (555) 123-4567">
-        </div>
-    </footer>
-
-    <!-- JavaScript for FAQ Toggle -->
-    <script>
-        const questions = document.querySelectorAll('.question');
-        questions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-            });
-        });
-    </script>
     <!-- Footer Section -->
 <footer>
     <!-- Contact Information -->
@@ -80,5 +61,16 @@
         <img src="mobilecontact.png" alt="Contact Information: Name - John Doe, Email - john@example.com, Phone - +1 (555) 123-4567" class="mobile-only">
     </div>
 </footer>
+    <!-- JavaScript for FAQ Toggle -->
+    <script>
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
 </body>
 </html>
