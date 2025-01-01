@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started - Peak Portraits AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .package-selection {
+      flex: 1;
+      padding: 20px;
+    }
+    .package {
+      margin: 15px 0;
+      cursor: pointer;
+    }
+    .package input[type="radio"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .package label {
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .package.selected label {
+      font-weight: bold;
+    }
+    .package .subtext {
+      margin-left: 30px;
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
+    }
+    .payment-section {
+      width: 300px;
+      padding: 20px;
+      border-left: 1px solid #ddd;
+      text-align: center;
+    }
+    .payment-section h2 {
+      margin-bottom: 20px;
+    }
+    .payment-buttons {
+      margin-top: 20px;
+    }
+    .payment-buttons button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .payment-buttons button:hover {
+      background: #0056b3;
+    }
+    .branding {
+      text-align: center;
+      font-size: 32px; /* Bigger font */
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #6c757d;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .back-button:hover {
+      background: #5a6268;
+    }
+    #pay-amount {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Package Selection Section -->
+    <div class="package-selection">
+      <div class="branding">Peak Portraits AI</div>
+      <a href="index.html" class="back-button">← Back to Home</a>
+      <h2>Choose a Package</h2>
+      <div class="package">
+        <input type="radio" id="professional" name="package" value="99" checked>
+        <label for="professional"><span class="price">$99</span> Professional Package</label>
+        <div class="subtext">1 AI-enhanced headshot with basic retouching.</div>
+      </div>
+      <div class="package">
+        <input type="radio" id="professional-plus" name="package" value="199">
+        <label for="professional-plus"><span class="price">$199</span> Professional Plus Package</label>
+        <div class="subtext">3 AI-enhanced headshots with advanced retouching.</div>
+      </div>
+      <div class="package">
+        <input type="radio" id="premium" name="package" value="299">
+        <label for="premium"><span class="price">$299</span> Premium Package</label>
+        <div class="subtext">5 AI-enhanced headshots with premium retouching and custom backgrounds.</div>
+      </div>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-section">
+      <h2>Payment</h2>
+      <div id="pay-amount">Pay $99</div>
+      <div class="payment-buttons">
+        <button id="paypal-button">Pay with PayPal</button>
+        <button id="stripe-button">Pay with Stripe</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle package selection and update payment amount
+    const packages = document.querySelectorAll('input[name="package"]');
+    const payAmount = document.getElementById('pay-amount');
+    const packageLabels = document.querySelectorAll('.package label');
+
+    packages.forEach((package, index) => {
+      package.addEventListener('change', () => {
+        // Update the payment amount
+        const price = package.value;
+        payAmount.textContent = `Pay $${price}`;
+
+        // Bold the selected package text
+        packageLabels.forEach(label => label.style.fontWeight = 'normal');
+        packageLabels[index].style.fontWeight = 'bold';
+      });
+    });
+
+    // Bold the default selected package on page load
+    packageLabels[0].style.fontWeight = 'bold';
+  </script>
+</body>
+</html>

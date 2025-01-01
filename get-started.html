@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started - Peak Portraits AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .branding {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #6c757d;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .back-button:hover {
+      background: #5a6268;
+    }
+    .packages {
+      margin-bottom: 20px;
+    }
+    .packages ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .packages li {
+      margin: 10px 0;
+    }
+    .packages .package-name {
+      font-weight: bold;
+    }
+    .packages .subtext {
+      font-size: 14px;
+      color: #555;
+      margin-left: 20px;
+    }
+    .payment-section {
+      text-align: center;
+    }
+    .payment-section h2 {
+      margin-bottom: 20px;
+    }
+    .paypal-form {
+      margin-top: 20px;
+    }
+    .paypal-form table {
+      margin: 0 auto;
+    }
+    .paypal-form input[type="image"] {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Branding and Back Button -->
+    <div class="branding">Peak Portraits AI</div>
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <!-- Package List -->
+    <div class="packages">
+      <h2>Choose a Package</h2>
+      <ul>
+        <li>
+          <span class="package-name">$99 - Professional Package  </span>
+          <div class="subtext">Receive at least 10 photos in a professional style.</div>
+        </li>
+        <li>
+          <span class="package-name">$199 - Professional Plus Package </span>
+          <div class="subtext">Receive at least 25 photos in up to 3 styles.</div>
+        </li>
+        <li>
+          <span class="package-name">$299 - Premium Package - </span>
+          <div class="subtext">Receive at least 50 photos in up to 5 styles.</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-section">
+      <h2>Payment</h2>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-form">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="YRQ2HJ567F5S6" />
+        <table>
+          <tr>
+            <td>
+              <input type="hidden" name="on0" value="Select Package"/>
+              Select Package
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select name="os0">
+                <option value="Professional Package">
+                  Professional Package $99.00 USD
+                </option>
+                <option value="Professional Plus Package">
+                  Professional Plus Package $199.00 USD
+                </option>
+                <option value="Premium Package">
+                  Premium Package $299.00 USD
+                </option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <input type="hidden" name="currency_code" value="USD" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ's - Expert AI Photo Enhancement</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Expert AI Photo Enhancement—Handled by Humans, Powered by AI</h1>
+        <p>We combine cutting-edge AI with hands-on expertise to deliver stunning, professional-quality photos. No tech skills required—just upload and let us do the rest!</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Before/After Gallery</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ's</a>
+    </nav>
+
+    <!-- FAQ Section -->
+    <main>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="question">How long does it take to process my photos?</div>
+                <div class="answer">We deliver the final, enhanced photos within 24 hours of receiving your upload.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">What types of photos can I upload?</div>
+                <div class="answer">You can upload any type of photo, including portraits, landscapes, and more. We’ll enhance them to look professional.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">Can I request specific styles for my photos?</div>
+                <div class="answer">Yes! We apply tailored prompts to generate images in the style(s) you want.</div>
+            </div>
+            <!-- Add more FAQ items as needed -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact: Ben Ruiter | <a href="mailto:benjaminruiter@peakportraitsai.com">benjaminruiter@peakportraitsai.com</a> | 603-968-5414</p>
+    </footer>
+
+    <!-- JavaScript for FAQ Toggle -->
+    <script>
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
