@@ -396,4 +396,54 @@ footer a {
   .answer {
     padding-left: 10px;
   }
+
+  /* Mobile-only image */
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .mobile-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+/* Default styles (for desktop) */
+.before-after-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.before-after-images img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Hide mobile-only image on desktop */
+.mobile-only {
+    display: none;
+}
+
+/* Mobile styles (for screens less than 768px wide) */
+@media (max-width: 768px) {
+    /* Hide desktop-only images on mobile */
+    .desktop-only {
+        display: none;
+    }
+
+    /* Show mobile-only image */
+    .mobile-only {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
 }
