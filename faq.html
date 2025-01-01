@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ's - Expert AI Photo Enhancement</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hide the test button by default */
+        .test-button {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -31,7 +37,7 @@
             </div>
             <div class="faq-item">
                 <div class="question">What types of photos can I upload?</div>
-                <div class="answer">Any photo of you. The more recent the better. If there's other people in the photo we'll crop them out for you before processing. Include some full body shots if you want your body to be represented accurately. We’ll train a custom ai model on your photos and then generate professional looking photos in any style you choose.</div>
+                <div class="answer">Any photo of you. The more recent the better. If there's other people in the photo we'll crop them out for you before processing. Include some full body shots if you want your body to be represented accurately. We’ll train a custom AI model on your photos and then generate professional-looking photos in any style you choose.</div>
             </div>
             <div class="faq-item">
                 <div class="question">Can I request specific styles for my photos?</div>
@@ -40,24 +46,20 @@
             <!-- Add more FAQ items as needed -->
         </section>
     </main>
- <!-- Hidden Test Button -->
-   // <div class="test-button">
-    //  <a href="thank-you.html">Test Thank You Page</a>
-   // </div>
-  //</div> 
 
-  <script>
-    // Uncomment the line below to make the test button visible
-    // document.querySelector('.test-button').style.display = 'block';
-  </script>
+    <!-- Hidden Test Button -->
+    <div class="test-button">
+        <a href="thank-you.html">Test Thank You Page</a>
+    </div>
+
+    <!-- Footer Section -->
     <footer>
         <!-- Contact Information -->
-    <div class="contact-info">
-      
-      <img src="contact-info.png" alt="Contact Information: Name - John Doe, Email - john@example.com, Phone - +1 (555) 123-4567">
-    </div>
-  </div>
+        <div class="contact-info">
+            <img src="contact-info.png" alt="Contact Information: Name - John Doe, Email - john@example.com, Phone - +1 (555) 123-4567">
+        </div>
     </footer>
+
     <!-- JavaScript for FAQ Toggle -->
     <script>
         const questions = document.querySelectorAll('.question');
