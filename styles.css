@@ -447,3 +447,17 @@ footer a {
         border-radius: 10px;
     }
 }
+/* Contact Info Image */
+.contact-info img {
+    max-width: 100%; /* Ensures the image doesn't exceed its container */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+/* Mobile Styles for Contact Info Image */
+@media (max-width: 768px) {
+    .contact-info img {
+        max-width: 80%; /* Adjust this value to control the image size on mobile */
+        margin: 0 auto; /* Centers the image */
+    }
+}
