@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Peak Portraits AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.paypal.com/sdk/js?client-id=Acse2swqhP3QQkwqeOyTxycG6bG7GRyR1yBz4dvOsuoLl7DZ0AIe0sxGccwX36T08O2Uq2RCYkjvZa5V&currency=USD"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .branding {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #6c757d;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .back-button:hover {
+      background: #5a6268;
+    }
+    .packages {
+      margin-bottom: 20px;
+    }
+    .packages ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .packages li {
+      margin: 10px 0;
+    }
+    .packages .package-name {
+      font-weight: bold;
+    }
+    .packages .subtext {
+      font-size: 14px;
+      color: #555;
+      margin-left: 20px;
+    }
+    .payment-section {
+      text-align: center;
+    }
+    .payment-section h2 {
+      margin-bottom: 20px;
+    }
+    #paypal-button-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NCKQZTVW37"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NCKQZTVW37');
+</script>
+<body>
+  <div class="container">
+    <!-- Branding and Back Button -->
+    <div class="branding">Peak Portraits AI</div>
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <!-- Package List -->
+    <div class="packages">
+      <h2>Choose a Package</h2>
+      <ul>
+        <li>
+          <label>
+            <input type="radio" name="package" value="99" data-name="Professional Package" checked>
+            <span class="package-name">$99 - Professional Package</span>
+            <div class="subtext">Receive at least 10 photos in a professional style.</div>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="package" value="199" data-name="Professional Plus Package">
+            <span class="package-name">$199 - Professional Plus Package</span>
+            <div class="subtext">Receive at least 25 photos in up to 3 styles.</div>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="package" value="299" data-name="Premium Package">
+            <span class="package-name">$299 - Premium Package</span>
+            <div class="subtext">Receive at least 50 photos in up to 5 styles.</div>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Referral Code Section -->
+    <div class="referral-section">
+      <label for="referral-code">Referral Code (optional):</label>
+      <input type="text" id="referral-code" name="referral-code">
+      <button type="button" onclick="applyDiscount()">Apply Code</button>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-section">
+      <h2>Payment</h2>
+      <p>Total: $<span id="total-price">99</span></p>
+      <div id="paypal-button-container"></div>
+    </div>
+  </div>
+
+  <script>
+    let totalPrice = 99; // Default price for the first package
+    let discount = 0;
+
+    // Update price when a package is selected
+    document.querySelectorAll('input[name="package"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        totalPrice = parseFloat(this.value);
+        updateTotalPrice();
+      });
+    });
+
+    // Apply referral discount
+    function applyDiscount() {
+      const referralCode = document.getElementById("referral-code").value;
+      if (referralCode === "REF10") { // Replace with actual validation logic
+        discount = 10; // Apply $10 discount
+        updateTotalPrice();
+        alert("Discount applied! New total: $" + (totalPrice - discount));
+      } else {
+        alert("Invalid referral code.");
+      }
+    }
+
+    // Update the displayed total price
+    function updateTotalPrice() {
+      document.getElementById("total-price").innerText = (totalPrice - discount).toFixed(2);
+    }
+
+    // PayPal integration
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: (totalPrice - discount).toFixed(2)
+            },
+            description: document.querySelector('input[name="package"]:checked').getAttribute('data-name')
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert("Payment successful! Thank you, " + details.payer.name.given_name + ".");
+        });
+      }
+    }).render("#paypal-button-container");
+  </script>
+</body>
+</html>
